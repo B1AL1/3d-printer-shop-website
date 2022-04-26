@@ -16,7 +16,7 @@ Items are stored in local storage of the web browser as JSON.
 **Software required to run project:**
 - Any web browser
 
-**Some features**
+**Some features:**
 
 ***Main screen***
 ![image](https://user-images.githubusercontent.com/64408066/165359157-856073ff-943f-4848-acf6-9c4274656e6a.png)
