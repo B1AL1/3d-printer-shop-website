@@ -1,0 +1,114 @@
+<!--LABORATORIUM 10. TWORZENIE RESPONSYWNEGO SZABLONU STRONY Z ZASTOSOWANIEM SZKIELETU BOOTSTRAP.-->
+<!--LABORATORIUM 7. BUDOWA PROSTEJ APLIKACJI TYPU SPA Z WYKORZYSTANIEM FUNKCJI JAVASCRIPT.-->
+<!--LABORATORIUM 5. REALIZACJA RESPONSYWNEJ STRONY INTERNETOWEJ Z WYKORZYSTANIEM ZAPYTANIA O MEDIA-->
+<!--LABORATORIUM 3. POZYCJONOWANIE ELEMENTÓW NA STRONIE INTERNETOWEJ. WYKORZYSTANIE NARZĘDZI DEWELOPERSKICH DOSTĘPNYCH W PRZEGLĄDARCE INTERNETOWEJ DO KONTROLI ARKUSZY CSS.-->
+<!--LABORATORIUM 2. WYKORZYSTANIE PODSTAWOWYCH ARKUSZY CSS DO FORMATOWANIA STRONY WIZUALNEJ DOKUMENTU HTML. WALIDACJA KODU DOKUMENTÓW HTML I CSS.-->
+<!--LABORATORIUM 1. CZĘŚĆ 1. EDYTOR TEKSTOWY HTML I ŚRODOWISKO PROGRAMOWANIA PROSTYCH APLIKACJI INTERNETOWYCH. LOKALNY SERWER HTTP. BUDOWA DOKUMENTU HTML. WALIDACJA KODU HTML Z WYKORZYSTANIEM WALIDATORA W3C.-->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Autor-->
+    <meta name="author" content="Konrad Kalman">
+    <!--Tytuł strony-->
+    <title>Druk 3D</title>
+    <!--Dołączenie ikony karty-->
+    <link rel="icon" type="image/x-icon" href="assets/3dprinter.ico">
+    <!--Dołączenie ikon Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!--Dołączenie głównego pliku CSS (z Bootstrapem)-->
+    <link href="css/styles.css" rel="stylesheet">
+    <!--Dołączenie pliku CSS z obsługą responsywności-->
+    <link href="css/media.css" rel="stylesheet" />
+</head>
+
+<body onload="liczbaProduktow()">
+    <!--Ładowanie ilości produktów w koszyku przy załadowaniu strony-->
+    <!--Nawigacja zbudowana przy użyciu klas Bootstrapa-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Druk 3D</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <!--Lista linków do poszczególnych podstron-->
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Strona domowa</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="technologie.html">Technologie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="serwis.html">Serwis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="onas.html">O nas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sklep</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!--Rozwijana lista w liście-->
+                            <li><a class="dropdown-item" href="drukarki.html">Drukarki 3D</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="dlugopisy.html">Długopisy 3D</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="filamenty.html">Filamenty</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <!--Przycisk koszyka-->
+                    <button class="btn btn-outline-light" onclick="location.href='koszyk.html'" type="button">
+                            <i class="bi-cart-fill me-1"></i>
+                            Koszyk
+                            <span id="liczba_koszyk" class="badge bg-light text-dark ms-1 rounded-pill"></span>
+                        </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!--Sekcja główna strony-->
+    <section>
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="mb-5 btn-group">
+                    <!--Przyciski odpowiedziałne za zmienianie zawartości strony (SPA)-->
+                    <button onclick="pokaz(1)" class="btn btn-outline-dark flex-shrink-0" type="button">
+                        FDM/FFF
+                    </button>
+                    <button onclick="pokaz(2)" class="btn btn-outline-dark flex-shrink-0" type="button">
+                        SLA
+                    </button>
+                    <button onclick="pokaz(3)" class="btn btn-outline-dark flex-shrink-0" type="button">
+                        SLS
+                    </button>
+                </div>
+                <div id="blok">
+                    <!--Główny tekst-->
+                    <h4 class="fw-bolder">FDM/FFF</h4>
+                    <p class="lead">Najbardziej rozpowszechnioną technologią drukowania 3D jest tak zwany FDM (Fused Depositon Modeling), ale ponieważ Stratasys zarejestrował znak towarowy dla tego oznaczenia, stał się znany (nie tylko) do celów komercyjnych oznaczenia
+                        FFF (Fused Filament Fabrication). W obu przypadkach jest to jedna i ta sama zasada działania drukarki 3D, a mówiąc o stacjonarnych drukarkach 3D , zdecydowana większość z nich korzysta z tej technologii do modelowania. Technologia
+                        drukowania FDM / FFF działa na zasadzie stopionego materiału, który jest najczęściej dostarczany do drukarki w rozgrzanego filamentu. Jest on umieszczony w pojemniku drukarki 3D na taśmociągu, z którego drukarka stopniowo rozwija
+                        materiał. Głowica drukująca drukarki 3D następnie drukuje warstwa po warstwie drukowanego modelu 3D. Zasadniczo ta technologia drukowania 3D jest bardzo podobna do technologii drukowania atramentowego. Podobnie, jak głowica drukująca
+                        wstrzykuje bardzo małą ilość atramentu na papier, głowica drukarki 3D umieszcza płynny materiał na warstwie podkładowej warstwa po warstwie, tworząc model fizyczny. Technologia drukowania 3D FDM / FFF jest najtańszą technologią
+                        drukowania 3D, co jest głównym powodem, dla którego jest tak rozpowszechniona. FDM / FFF drukarka 3D do użytku domowego można kupić do pro použití v domácnosti pořídíte do 1700 pln. Minuesem tej technologii jest długi czas drukowania,
+                        szeroka zmienność jakości druku, która zależy od modelu drukarki i użytego materiału, oraz różne ograniczenia projektowe (na przykład stopiony materiał musi się najpierw utwardzić, w przypadku bardziej złożonych modeli należy liczyć
+                        z podporami drukowania).</p>
+                    <div><iframe src="https://www.youtube.com/embed/m_QhY1aABsE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                    <!--Umieszczenie filmu z zewnętrznej strony-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Stopka-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Konrad Kalman 2021</p>
+        </div>
+    </footer>
+    <!--Dołączenie głównego pliku Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Dołączenie głównego pliku JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

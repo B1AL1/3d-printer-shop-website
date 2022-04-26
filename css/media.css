@@ -1,0 +1,32 @@
+/*LABORATORIUM 5. REALIZACJA RESPONSYWNEJ STRONY INTERNETOWEJ Z WYKORZYSTANIEM ZAPYTANIA O MEDIA*/
+
+
+/*Wyśrodkowanie okna filmu*/
+
+#blok div {
+    text-align: center;
+}
+
+
+/*Zmiany wielkości okienka filmiku na stronie technologie przy odpowiednich rozdzielczościach*/
+
+@media (max-width: 576px) {
+    iframe {
+        height: 235px;
+        width: 420px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    iframe {
+        height: 260px;
+        width: 480px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    iframe {
+        height: 275px;
+        width: 520px;
+    }
+}

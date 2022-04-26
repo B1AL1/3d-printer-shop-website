@@ -1,0 +1,95 @@
+<!--LABORATORIUM 10. TWORZENIE RESPONSYWNEGO SZABLONU STRONY Z ZASTOSOWANIEM SZKIELETU BOOTSTRAP.-->
+<!--LABORATORIUM 3. POZYCJONOWANIE ELEMENTÓW NA STRONIE INTERNETOWEJ. WYKORZYSTANIE NARZĘDZI DEWELOPERSKICH DOSTĘPNYCH W PRZEGLĄDARCE INTERNETOWEJ DO KONTROLI ARKUSZY CSS.-->
+<!--LABORATORIUM 2. WYKORZYSTANIE PODSTAWOWYCH ARKUSZY CSS DO FORMATOWANIA STRONY WIZUALNEJ DOKUMENTU HTML. WALIDACJA KODU DOKUMENTÓW HTML I CSS.-->
+<!--LABORATORIUM 1. CZĘŚĆ 1. EDYTOR TEKSTOWY HTML I ŚRODOWISKO PROGRAMOWANIA PROSTYCH APLIKACJI INTERNETOWYCH. LOKALNY SERWER HTTP. BUDOWA DOKUMENTU HTML. WALIDACJA KODU HTML Z WYKORZYSTANIEM WALIDATORA W3C.-->
+<!--LABORATORIUM 11. CZĘŚĆ 1. BUDOWA APLIKACJI WYKORZYSTUJĄCEJ LOKALNE MAGAZYNY DANYCH-->
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Autor-->
+    <meta name="author" content="Konrad Kalman">
+    <!--Tytuł strony-->
+    <title>Druk 3D</title>
+    <!--Dołączenie ikony karty-->
+    <link rel="icon" type="image/x-icon" href="assets/3dprinter.ico">
+    <!--Dołączenie ikon Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!--Dołączenie głównego pliku CSS (z Bootstrapem)-->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body onload="wyswietlKoszyk(), liczbaProduktow()">
+    <!--Ładowanie ilości produktów w koszyku przy załadowaniu strony-->
+    <!--Nawigacja zbudowana przy użyciu klas Bootstrapa-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Druk 3D</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <!--Lista linków do poszczególnych podstron-->
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Strona domowa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="technologie.html">Technologie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="serwis.html">Serwis</a></li>
+                    <li class="nav-item"><a class="nav-link" href="onas.html">O nas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sklep</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <!--Rozwijana lista w liście-->
+                            <li><a class="dropdown-item" href="drukarki.html">Drukarki 3D</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="dlugopisy.html">Długopisy 3D</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="filamenty.html">Filamenty</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <!--Przycisk koszyka-->
+                    <button class="btn btn-outline-light active" onclick="location.href='koszyk.html'" type="button">
+                            <i class="bi-cart-fill me-1"></i>
+                            Koszyk
+                            <span id="liczba_koszyk" class="badge bg-light text-dark ms-1 rounded-pill"></span>
+                        </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!--Sekcja główna strony-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <h3>Koszyk na produkty</h3>
+                <form class="form-text form-control form-floating btn-group">
+                    <!--Przyciski do usuwania całej zawartości koszyka i do wyszukiwania produktu-->
+                    <button class="btn btn-outline-dark" type="button" onclick="usunKoszyk()">Usuń wszystkie produkty</button>
+                    <button class="btn btn-outline-dark" type="button" onclick="wyszukajProdukt()">Wyszukaj produkt po nazwie</button>
+                </form>
+
+                <div id="koszyk">
+                    <!--Miejsce na zawartość koszyka-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Stopka-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Konrad Kalman 2021</p>
+        </div>
+    </footer>
+    <!--Dołączenie głównego pliku Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Dołączenie głównego pliku JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
