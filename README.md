@@ -7,14 +7,14 @@ After adding to cart you can delete all items from cart, edit the number of buyi
 Items are stored in local storage of the web browser as JSON.
 
 **Technologies:**
-- HTML
-- CSS
-- JavaScript
-- Bootstrap
-- jQuery
+- HTML,
+- CSS,
+- JavaScript,
+- Bootstrap,
+- jQuery.
 
 **Software required to run project:**
-- Any web browser
+- Any web browser.
 
 **Some features:**
 
